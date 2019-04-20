@@ -68,6 +68,8 @@ def read_conf(conf_file):
                 continue
             fs = l.split()
             key = (int(fs[0]), int(fs[1]))
+            if fs[0] == '176' and fs[1] == '15':
+                val = (int(fs[4]), int(fs[5]))
             if fs[0] == '144':
                 val = (int(fs[2]), int(fs[3]))
             else:
@@ -151,6 +153,7 @@ def joystick_run():
                     if key[1] == 15:
                         # WE DOING SOME CRAZY STUFF UP IN HERE
                         vjoy.SetBtn(reading, opt[0], opt[1])
+                        break
                         print(key[1])
                     # A slider input
                     # Check that the output axis is valid
